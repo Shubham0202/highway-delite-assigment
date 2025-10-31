@@ -50,7 +50,10 @@ export default function ExperienceGrid() {
 
   if (loading) return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="text-center py-12">Loading experiences...</div>
+      <div className="text-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto"></div>
+        <p className="mt-4 text-gray-600">Loading experiences...</p>
+      </div>
     </div>
   )
   
