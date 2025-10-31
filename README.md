@@ -231,7 +231,14 @@ The backend is integrated with the frontend using Next.js API routes, so it depl
 1) Home Page
 ![Home Page Screenshot](./assets/image.png)
 
+2) Details Page
+ ![Details Page](assets/details.png)
 
+3) Checkout Page
+ ![Checkout](assets/checkout.png)
+
+4) Result Page
+ ![Result](assets/result.png)
 ## 📞 Support
 
 For support or questions:
