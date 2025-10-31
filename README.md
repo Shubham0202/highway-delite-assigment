@@ -247,5 +247,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Built with Next.js and Tailwind CSS
 
 ---
-
-**Note**: Replace `https://github.com/Shubham0202/highway-delite-assigment`, `https://highway-delite-assigment.onrender.com/` with your actual deployment URLs before submitting.
