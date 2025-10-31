@@ -227,6 +227,8 @@ The backend is integrated with the frontend using Next.js API routes, so it depl
 | `MONGODB_URI` | MongoDB connection string | `mongodb+srv://...` |
 | `NODE_ENV` | Environment mode | `development` or `production` |
 
+## Screenshots
+![Home Page Screenshot](./assets/image.png)
 
 
 ## 📞 Support
