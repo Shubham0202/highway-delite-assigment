@@ -228,6 +228,7 @@ The backend is integrated with the frontend using Next.js API routes, so it depl
 | `NODE_ENV` | Environment mode | `development` or `production` |
 
 ## Screenshots
+1) Home Page
 ![Home Page Screenshot](./assets/image.png)
 
 
