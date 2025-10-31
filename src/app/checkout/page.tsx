@@ -6,6 +6,18 @@ import { ChevronLeft } from "lucide-react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { apiService, Experience } from "../services/api"
 
+// Add loading component
+function CheckoutLoading() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto"></div>
+        <p className="mt-4 text-gray-600">Loading checkout...</p>
+      </div>
+    </div>
+  )
+}
+
 export default function CheckoutPage() {
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
@@ -37,6 +49,8 @@ export default function CheckoutPage() {
         } finally {
           setLoading(false)
         }
+      } else {
+        setLoading(false)
       }
     }
 
@@ -96,8 +110,39 @@ export default function CheckoutPage() {
     }
   }
 
-  if (loading) return <div className="text-center py-12">Loading...</div>
-  if (!experience) return <div className="text-center py-12">Experience not found</div>
+  // Show loading state
+  if (loading) {
+    return <CheckoutLoading />
+  }
+
+  // Redirect if no experience ID
+  if (!experienceId) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Invalid Booking</h2>
+          <p className="text-gray-600 mb-6">Please select an experience first.</p>
+          <Link href="/" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors">
+            Browse Experiences
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  if (!experience) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Experience Not Found</h2>
+          <p className="text-gray-600 mb-6">The selected experience could not be loaded.</p>
+          <Link href="/" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors">
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">

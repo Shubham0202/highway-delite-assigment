@@ -2,8 +2,9 @@
 
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
 
-export default function ConfirmationPage() {
+function ResultContent() {
   const searchParams = useSearchParams()
   const referenceId = searchParams.get('reference')
   const status = searchParams.get('status')
@@ -58,3 +59,17 @@ export default function ConfirmationPage() {
     </div>
   )
 }
+
+export default function ResultPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col items-center justify-center mt-10 bg-white px-4">
+        <div className="text-center">Loading...</div>
+      </div>
+    }>
+      <ResultContent />
+    </Suspense>
+  )
+}
+
+export const dynamic = 'force-dynamic'
